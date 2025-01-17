@@ -40,7 +40,7 @@ This guide provides detailed steps to integrate **KernelSU-Next** with **SUSFS**
    ```bash
    patch -p1 < 0001-Kernel-Implement-SUSFS-v1.5.3.patch
    ```
-5. **Back to kernel source directoru**:
+5. **Back to kernel source directory**:
    ```bash
    cd ..
    ```
