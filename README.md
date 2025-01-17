@@ -65,6 +65,8 @@ This guide provides detailed steps to integrate **KernelSU-Next** with **SUSFS**
    patch -p1 < 50_add_susfs_in_kernel-4.14.patch
    ```
 
+9. ***Compile or build the kernel***
+
 ---
 
 ### Conclusion  
