@@ -22,7 +22,7 @@ This guide provides detailed steps to integrate **KernelSU-Next** with **SUSFS**
 1. **Run the KernelSU-Next setup script**:  
    This step downloads and initializes the KernelSU-Next environment.  
    ```bash
-   curl -LSs "https://raw.githubusercontent.com/rifsxd/KernelSU-Next/next/kernel/setup.sh" | bash -s next
+   curl -LSs "https://raw.githubusercontent.com/rifsxd/KernelSU-Next/next/kernel/setup.sh" | bash -s v1.0.3
    ```
 
 2. **Enter the KernelSU-Next directory**:  
@@ -40,21 +40,25 @@ This guide provides detailed steps to integrate **KernelSU-Next** with **SUSFS**
    ```bash
    patch -p1 < 0001-Kernel-Implement-SUSFS-v1.5.3.patch
    ```
+5. **Back to kernel source directoru**:
+   ```bash
+   cd ..
+   ```
 
-5. **Clone the SUSFS repository for kernel 4.14**:  
+6. **Clone the SUSFS repository for kernel 4.14**:  
    This repository contains additional patches and files necessary for SUSFS integration.  
    ```bash
    git clone https://gitlab.com/simonpunk/susfs4ksu.git -b kernel-4.14
    ```
 
-6. **Copy SUSFS patches to the kernel directory**:  
+7. **Copy SUSFS patches to the kernel directory**:  
    The files required for SUSFS integration are stored in the `susfs4ksu` repository.  
    ```bash
    cp -v susfs4ksu/kernel_patches/fs/* fs
    cp -v susfs4ksu/kernel_patches/include/linux/* include/linux
    ```
 
-7. **Apply the additional SUSFS patch**:  
+8. **Apply the additional SUSFS patch**:  
    This step ensures proper integration of SUSFS with the kernel.  
    ```bash
    cp -v susfs4ksu/kernel_patches/50_add_susfs_in_kernel-4.14.patch .
