@@ -22,7 +22,6 @@ This guide provides detailed steps to integrate **KernelSU-Next** with **SUSFS**
 1. **Run the KernelSU-Next setup script**:  
    This step downloads and initializes the KernelSU-Next environment.
    
-   Please choose only one:
    • Specific tag
    ```bash
    curl -LSs "https://raw.githubusercontent.com/rifsxd/KernelSU-Next/next/kernel/setup.sh" | bash -s v1.0.3
