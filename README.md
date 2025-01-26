@@ -22,17 +22,9 @@ This guide provides detailed steps to integrate **KernelSU-Next** with **SUSFS**
 1. **Run the KernelSU-Next setup script**:  
    This step downloads and initializes the KernelSU-Next environment.
    
-   • Specific tag
+   • Next-susfs-msm-4.14 branch
    ```bash
-   curl -LSs "https://raw.githubusercontent.com/rifsxd/KernelSU-Next/next/kernel/setup.sh" | bash -s v1.0.3
-   ```
-   • Latest release
-   ```bash
-   curl -LSs "https://raw.githubusercontent.com/rifsxd/KernelSU-Next/next/kernel/setup.sh" | bash -
-   ```
-   • Next branch (dev)
-   ```bash
-   curl -LSs "https://raw.githubusercontent.com/rifsxd/KernelSU-Next/next/kernel/setup.sh" | bash -s next
+   curl -LSs "https://raw.githubusercontent.com/Bias8145/KernelSU-Next/next-susfs-4.14/kernel/setup.sh" | bash -s next-susfs-4.14
    ```
 
 3. **Enter the KernelSU-Next directory**:  
@@ -40,16 +32,6 @@ This guide provides detailed steps to integrate **KernelSU-Next** with **SUSFS**
    cd KernelSU-Next/
    ```
 
-4. **Download the SUSFS v1.5.3 patch**:  
-   This patch implements the SUSFS functionality.  
-   ```bash
-   curl -o 0001-Kernel-Implement-SUSFS-v1.5.3.patch https://github.com/sidex15/KernelSU-Next/commit/1e750de25930e875612bbec0410de0088474c00b.patch
-   ```
-
-5. **Apply the SUSFS v1.5.3 patch**:  
-   ```bash
-   patch -p1 < 0001-Kernel-Implement-SUSFS-v1.5.3.patch
-   ```
 6. **Back to kernel source directory**:
    ```bash
    cd ..
