@@ -24,7 +24,7 @@ This guide provides detailed steps to integrate **KernelSU-Next** with **SUSFS**
    
    • Next-susfs-msm-4.14 branch
    ```bash
-   curl -LSs "https://raw.githubusercontent.com/Bias8145/KernelSU-Next/next-susfs-4.14/kernel/setup.sh" | bash -s next-susfs-4.14
+   curl -LSs "https://raw.githubusercontent.com/rifsxd/KernelSU-Next/next-susfs/kernel/setup.sh" | bash -s next-susfs
    ```
 
 2. **Clone the SUSFS repository for kernel 4.14**:  
