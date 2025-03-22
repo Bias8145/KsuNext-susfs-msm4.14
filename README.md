@@ -20,34 +20,50 @@ This guide provides detailed steps to integrate **KernelSU-Next** with **SUSFS**
 
 ### Implementation Steps
 1. **Run the KernelSU-Next setup script**:  
-   This step downloads and initializes the KernelSU-Next environment.
-   
-   • Next-susfs-msm-4.14 branch
+   This step downloads and initializes the KernelSU-Next environment.  
    ```bash
-   curl -LSs "https://raw.githubusercontent.com/rifsxd/KernelSU-Next/next-susfs/kernel/setup.sh" | bash -s next-susfs
+   curl -LSs "https://raw.githubusercontent.com/rifsxd/KernelSU-Next/next/kernel/setup.sh" | bash -s v1.0.3
    ```
 
-2. **Clone the SUSFS repository for kernel 4.14**:  
+2. **Enter the KernelSU-Next directory**:  
+   ```bash
+   cd KernelSU-Next/
+   ```
+
+3. **Download the SUSFS v1.5.3 patch**:  
+   This patch implements the SUSFS functionality.  
+   ```bash
+   curl -o 0001-Kernel-Implement-SUSFS-v1.5.3.patch https://github.com/sidex15/KernelSU-Next/commit/1e750de25930e875612bbec0410de0088474c00b.patch
+   ```
+
+4. **Apply the SUSFS v1.5.3 patch**:  
+   ```bash
+   patch -p1 < 0001-Kernel-Implement-SUSFS-v1.5.3.patch
+   ```
+5. **Back to kernel source directoru**:
+   ```bash
+   cd ..
+   ```
+
+6. **Clone the SUSFS repository for kernel 4.14**:  
    This repository contains additional patches and files necessary for SUSFS integration.  
    ```bash
    git clone https://gitlab.com/simonpunk/susfs4ksu.git -b kernel-4.14
    ```
 
-3. **Copy SUSFS patches to the kernel directory**:  
+7. **Copy SUSFS patches to the kernel directory**:  
    The files required for SUSFS integration are stored in the `susfs4ksu` repository.  
    ```bash
    cp -v susfs4ksu/kernel_patches/fs/* fs
    cp -v susfs4ksu/kernel_patches/include/linux/* include/linux
    ```
 
-4. **Apply the additional SUSFS patch**:  
+8. **Apply the additional SUSFS patch**:  
    This step ensures proper integration of SUSFS with the kernel.  
    ```bash
    cp -v susfs4ksu/kernel_patches/50_add_susfs_in_kernel-4.14.patch .
    patch -p1 < 50_add_susfs_in_kernel-4.14.patch
    ```
-
-5. ***Compile or build the kernel***
 
 ---
 
